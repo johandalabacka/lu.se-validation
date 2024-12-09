@@ -64,7 +64,7 @@ export default {
     }
   },
   methods: {
-    await validate () {
+    async validate () {
       if (this.disabled) {
         this.error = null
         this.state = null
