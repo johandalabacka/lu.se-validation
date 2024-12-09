@@ -1,6 +1,6 @@
 {
   "name": "@lu.se/validation",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Package to validate fields in Vue3",
   "type": "module",
   "main": "index.js",
@@ -11,7 +11,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Johan Dahl",
+  "author": {
+    "name": "Johan Dahl",
+    "email": "johan.dahl@lth.lu.se"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",

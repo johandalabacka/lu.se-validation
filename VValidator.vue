@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { _validateRules, _messageGenerator } from './validation.js'
+import { _validateRules, _messageGenerator } from './index.js'
 export default {
   name: 'VValidator',
   props: {
@@ -64,14 +64,14 @@ export default {
     }
   },
   methods: {
-    validate () {
+    await validate () {
       if (this.disabled) {
         this.error = null
         this.state = null
         return null
       }
       // console.log('validating field', this.name)
-      const failedRule = _validateRules(this.value, this.parsedRules)
+      const failedRule = await _validateRules(this.value, this.parsedRules)
       if (!failedRule) {
         this.error = null
         this.state = true

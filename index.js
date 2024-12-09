@@ -16,7 +16,7 @@ import VForm from './VForm.vue'
  * @callback RuleFunction
  * @param {any} value
  * @param {Rule} rule
- * @returns {boolean}
+ * @returns {boolean | Promise<boolean> | Error | Promise<Error>}
  */
 
 /**
@@ -38,17 +38,17 @@ export function registerRule (ruleName, func) {
  *
  * @param {any} value to be validated
  * @param {Rule[]} rules to validate
- * @returns {Rule | null} rule which failed or null if success
+ * @returns {Promise<Rule | null>} rule which failed or null if success
  */
-export function _validateRules (value, rules) {
+export async function _validateRules (value, rules) {
   for (const rule of rules) {
     const f = rule.func ?? ruleFunc.get(rule.rule)
     if (!f) {
       throw new Error(`Unknown rule "${rule.rule}"`)
     }
     try {
-      const ruleSucceded = f(value, rule)
-      // console.log('validating', value, rule, ruleSucceded)
+      const ruleSucceded = await f(value, rule)
+      console.log('validating', value, rule, ruleSucceded)
 
       if (!ruleSucceded) {
         return rule

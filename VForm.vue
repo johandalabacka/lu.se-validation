@@ -10,7 +10,7 @@
  * @typedef {import('./VValidator.vue').default} VValidator
  */
 
-import { _validateAll } from './validation.js'
+import { _validateAll } from './index.js'
 
 export default {
   name: 'VForm',
@@ -38,10 +38,10 @@ export default {
       this.validators.delete(validator)
     },
     /**
-     * @reuturns {}
+     * @returns {<Promise<boolean>} true if all validators are valid
      */
-    validate () {
-      const result = _validateAll(this.validators.values())
+    async validate () {
+      const result = await _validateAll(this.validators.values())
       console.log('v-form validate', result)
       return result
     }
