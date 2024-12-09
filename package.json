@@ -1,6 +1,6 @@
 {
   "name": "@lu.se/validation",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Package to validate fields in Vue3",
   "type": "module",
   "main": "index.js",
